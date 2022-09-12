@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class MathController {
 
-    @RequestMapping(value="/sum/numberOne/numberTwo", method = RequestMethod.GET)
+    @RequestMapping(value="/sum/{numberOne}/{numberTwo}", method = RequestMethod.GET)
     public Double sum(@PathVariable("numberOne") String numberOne, @PathVariable("numberTwo") String numberTwo) throws Exception{
 
         if(!isNumeric(numberOne) || !isNumeric(numberTwo)) {
