@@ -31,7 +31,28 @@ public class MathController {
         return sum;
 
     }
+    @RequestMapping(value="/multiplication/{numberOne}/{numberTwo}", method = RequestMethod.GET)
+    public Double multiplication(@PathVariable("numberOne") String numberOne, @PathVariable("numberTwo") String numberTwo) throws Exception {
 
+        if (!isNumeric(numberOne) || !isNumeric(numberTwo)) {
+            throw new InvalidMathOperationException("Please set a numeric value !");
+
+        }
+        Double sum = convertToDouble(numberOne) * convertToDouble(numberTwo);
+        return sum;
+
+    }
+    @RequestMapping(value="/division/{numberOne}/{numberTwo}", method = RequestMethod.GET)
+    public Double division(@PathVariable("numberOne") String numberOne, @PathVariable("numberTwo") String numberTwo) throws Exception {
+
+        if (!isNumeric(numberOne) || !isNumeric(numberTwo)) {
+            throw new InvalidMathOperationException("Please set a numeric value !");
+
+        }
+        Double sum = convertToDouble(numberOne) / convertToDouble(numberTwo);
+        return sum;
+
+    }
     private Double convertToDouble(String strNumber) {
         if(strNumber == null) return 0D;
         String number = strNumber.replaceAll(",", ".");
