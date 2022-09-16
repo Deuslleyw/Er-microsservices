@@ -20,6 +20,17 @@ public class MathController {
         Double sum = convertToDouble(numberOne) + convertToDouble(numberTwo);
         return sum;
     }
+    @RequestMapping(value="/subtraction/{numberOne}/{numberTwo}", method = RequestMethod.GET)
+    public Double subtraction(@PathVariable("numberOne") String numberOne, @PathVariable("numberTwo") String numberTwo) throws Exception {
+
+        if (!isNumeric(numberOne) || !isNumeric(numberTwo)) {
+            throw new InvalidMathOperationException("Please set a numeric value !");
+
+        }
+        Double sum = convertToDouble(numberOne) - convertToDouble(numberTwo);
+        return sum;
+
+    }
 
     private Double convertToDouble(String strNumber) {
         if(strNumber == null) return 0D;
