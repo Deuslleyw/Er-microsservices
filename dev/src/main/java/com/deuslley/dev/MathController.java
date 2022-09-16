@@ -53,6 +53,30 @@ public class MathController {
         return sum;
 
     }
+    @RequestMapping(value="/mean/{numberOne}/{numberTwo}", method = RequestMethod.GET)
+    public Double mean(@PathVariable("numberOne") String numberOne, @PathVariable("numberTwo") String numberTwo) throws Exception {
+
+        if (!isNumeric(numberOne) || !isNumeric(numberTwo)) {
+            throw new InvalidMathOperationException("Please set a numeric value !");
+
+        }
+        Double sum = (convertToDouble(numberOne) + convertToDouble(numberTwo))/ 2;
+        return sum;
+
+    }
+
+    @RequestMapping(value="/squareRoot/{number}", method = RequestMethod.GET)
+    public Double squareRoot(@PathVariable("number") String number) throws Exception {
+
+        if (!isNumeric(number)){
+            throw new InvalidMathOperationException("Please set a numeric value !");
+
+        }
+        Double sum = (Double) Math.sqrt(convertToDouble(number));
+        return sum;
+
+    }
+
     private Double convertToDouble(String strNumber) {
         if(strNumber == null) return 0D;
         String number = strNumber.replaceAll(",", ".");
