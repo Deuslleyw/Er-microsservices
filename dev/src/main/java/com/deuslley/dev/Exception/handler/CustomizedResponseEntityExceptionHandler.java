@@ -1,7 +1,7 @@
-package com.deuslley.dev.exception.handler;
+package com.deuslley.dev.Exception.handler;
 
-import com.deuslley.dev.exception.ExceptionResponse;
-import com.deuslley.dev.exception.InvalidMathOperationException;
+import com.deuslley.dev.Exception.ExceptionResponse;
+import com.deuslley.dev.Exception.InvalidMathOperationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

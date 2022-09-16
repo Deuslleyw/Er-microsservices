@@ -1,4 +1,4 @@
-package com.deuslley.dev.exception;
+package com.deuslley.dev.Exception;
 
 import java.io.Serializable;
 import java.util.Date;
